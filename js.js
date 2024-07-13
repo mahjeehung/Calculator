@@ -1,20 +1,45 @@
-function add(x,y){
-    return x+y
+let firstNumber;
+let secondNumber ;
+let operator;
+
+function add(firstNumber,secondNumber){
+    return firstNumber+secondNumber
 }
 
-function subtract(x,y){
-    return x-y
+function subtract(firstNumber,secondNumber){
+    return firstNumber-secondNumber
 }
 
-function multiply(x,y){
-    return x*y
+function multiply(firstNumber,secondNumber){
+    return firstNumber*secondNumber
 }
 
-function divide(x,y){
-    return x / y
+function divide(firstNumber,secondNumber){
+    return firstNumber / secondNumber
 }
 
-console.log(add(6,3))
-console.log(subtract(6,3))
-console.log(multiply(6,3))
-console.log(divide(6,3))
+function operateFunction(firstNumber,secondNumber,operator){
+    switch(operator){
+        case 'add':
+            return add(firstNumber,secondNumber);
+            break;
+        case 'subtract':
+            return subtract(firstNumber,secondNumber);
+            break;
+        case 'multiply':
+            return multiply(firstNumber,secondNumber);
+            break;
+        case 'divide':
+            return divide(firstNumber,secondNumber);
+            break;
+        case '':
+            alert('please input numbers and operator(+,-,*,/)');
+            break;
+        default:
+            alert('please select one and only one operator');
+            break;
+    }
+}
+
+// console.log(operateFunction(6,,''));
+// ^test line
