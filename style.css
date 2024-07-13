@@ -1,0 +1,21 @@
+.containerMaster{
+    border: 5px solid black;
+    width: 500px;
+    height: 600px;
+    display: flex;
+    flex-direction: column;
+}
+
+div{
+    display: flex;
+    gap: 5px;
+}
+
+button {
+    flex-grow: 1;
+}
+
+.buttonClear {
+    flex-grow:5;
+    flex-basis:0;
+}
