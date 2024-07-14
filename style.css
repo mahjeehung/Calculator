@@ -4,11 +4,13 @@
     height: 600px;
     display: flex;
     flex-direction: column;
+    margin: 50px;
 }
 
 div{
     display: flex;
     gap: 5px;
+    height: 100px;
 }
 
 button {
@@ -16,6 +18,6 @@ button {
 }
 
 .buttonClear {
-    flex-grow:5;
+    flex-grow:1;
     flex-basis:0;
 }
