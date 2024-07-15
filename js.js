@@ -35,7 +35,7 @@ function divide(firstNumber,secondNumber){
     return result;
 }
 
-function numberBtn(number){
+function numberInput(number){
     if (operator != undefined && secondNumber ==0){
         return secondNumber = `${number}`;
     } else if (operator != undefined && secondNumber !=0){
@@ -73,6 +73,16 @@ function operateFunction(firstNumber,secondNumber,operator){
             break;
     }
 }
-console.log(firstNumber)
+
+let numberBtn = function numberBtn(e){
+    numberInput(`${e.target.textContent}`);
+    console.log(firstNumber);
+}
+
+const btn = document.getElementById("button1");
+const btn2 = document.getElementById("button2");
+
+btn.addEventListener("click",numberBtn);
+btn2.addEventListener("click",numberBtn);
 // console.log(operateFunction(6,,''));
 // ^test line
