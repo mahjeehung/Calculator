@@ -7,30 +7,31 @@ function reset(){
     operator = undefined;
 }
 
-function reset(){
+function clear(){
     firstNumber = 0;
     reset();
 }
+
 function add(firstNumber,secondNumber){
-    let result = firstNumber+secondNumber;
+    let result = Number(firstNumber)+Number(secondNumber);
     reset();
     return result;
 }
 
 function subtract(firstNumber,secondNumber){
-    let result = firstNumber-secondNumber;
+    let result = Number(firstNumber)-Number(secondNumber);
     reset();
     return result;
 }
 
 function multiply(firstNumber,secondNumber){
-    let result = firstNumber*secondNumber;
+    let result = Number(firstNumber)*Number(secondNumber);
     reset();
     return result;
 }
 
 function divide(firstNumber,secondNumber){
-    let result = firstNumber / secondNumber;
+    let result = Number(firstNumber) / Number(secondNumber);
     reset();
     return result;
 }
@@ -47,42 +48,54 @@ function numberInput(number){
 }
 }
 
-function operatorBtn(operation){
-    return operator = operation;
-}
-
 function operateFunction(firstNumber,secondNumber,operator){
+    console.log('not on page load');
     switch(operator){
-        case 'add':
+        case '+':
             return firstNumber= add(firstNumber,secondNumber);
             break;
-        case 'subtract':
+        case '-':
             return firstNumber= subtract(firstNumber,secondNumber);
             break;
-        case 'multiply':
+        case '*':
             return firstNumber= multiply(firstNumber,secondNumber);
             break;
-        case 'divide':
+        case '/':
             return firstNumber= divide(firstNumber,secondNumber);
             break;
         case '':
             alert('please input numbers and operator(+,-,*,/)');
             break;
-        default:
-            alert('please select one and only one operator');
-            break;
+        // default:
+        //     alert('please select one and only one operator');
+        //     break;
     }
 }
 
-let numberBtn = function numberBtn(e){
+let numberBtnFx = function numberBtnFx(e){
     numberInput(`${e.target.textContent}`);
-    console.log(firstNumber);
+    console.log(firstNumber,secondNumber);
 }
 
-const btn = document.getElementById("button1");
-const btn2 = document.getElementById("button2");
+let operatorBtnFx = function operatorBtnFx(operation){
+    operator = (`${operation.target.textContent}`);
+    console.log(operator);
+}
 
-btn.addEventListener("click",numberBtn);
-btn2.addEventListener("click",numberBtn);
+const numberButton = Array.from(document.getElementsByClassName("numberButton"));
+const operationButton = Array.from(document.getElementsByClassName("operationButton"));
+const equalButton = document.getElementById("equalButton");
+
+for (let i = 0; i <numberButton.length; i++){
+numberButton[i].addEventListener("click",numberBtnFx);
+}
+
+for (let i = 0; i <operationButton.length; i++){
+operationButton[i].addEventListener("click",operatorBtnFx);
+}
+
+equalButton.addEventListener('click', function(){operateFunction(firstNumber,secondNumber,operator)});
+// I need to fix this function to fire correctly 
+
 // console.log(operateFunction(6,,''));
 // ^test line
