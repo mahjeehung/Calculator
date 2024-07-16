@@ -12,25 +12,25 @@ function clear(){
     reset();
 }
 
-function add(firstNumber,secondNumber){
-    let result = Number(firstNumber)+Number(secondNumber);
+function add(){
+    firstNumber = Number(firstNumber)+Number(secondNumber);
     reset();
-    return result;
+    return firstNumber;
 }
 
-function subtract(firstNumber,secondNumber){
+function subtract(){
     let result = Number(firstNumber)-Number(secondNumber);
     reset();
     return result;
 }
 
-function multiply(firstNumber,secondNumber){
+function multiply(){
     let result = Number(firstNumber)*Number(secondNumber);
     reset();
     return result;
 }
 
-function divide(firstNumber,secondNumber){
+function divide(){
     let result = Number(firstNumber) / Number(secondNumber);
     reset();
     return result;
@@ -48,20 +48,20 @@ function numberInput(number){
 }
 }
 
-function operateFunction(firstNumber,secondNumber,operator){
+function operateFunction(operator){
     console.log('not on page load');
     switch(operator){
         case '+':
-            return firstNumber= add(firstNumber,secondNumber);
+            return firstNumber= add();
             break;
         case '-':
-            return firstNumber= subtract(firstNumber,secondNumber);
+            return firstNumber= subtract();
             break;
         case '*':
-            return firstNumber= multiply(firstNumber,secondNumber);
+            return firstNumber= multiply();
             break;
         case '/':
-            return firstNumber= divide(firstNumber,secondNumber);
+            return firstNumber= divide();
             break;
         case '':
             alert('please input numbers and operator(+,-,*,/)');
@@ -94,8 +94,7 @@ for (let i = 0; i <operationButton.length; i++){
 operationButton[i].addEventListener("click",operatorBtnFx);
 }
 
-equalButton.addEventListener('click', function(){operateFunction(firstNumber,secondNumber,operator)});
-// I need to fix this function to fire correctly 
+equalButton.addEventListener('click', function(){(operateFunction(operator))});
 
 // console.log(operateFunction(6,,''));
 // ^test line
