@@ -1,6 +1,7 @@
 let firstNumber = 0;
 let secondNumber = 0;
 let operator;
+const display = document.getElementById("display")
 
 function reset(){
     secondNumber = 0;
@@ -38,14 +39,18 @@ function divide(){
 
 function numberInput(number){
     if (operator != undefined && secondNumber ==0){
-        return secondNumber = `${number}`;
+        secondNumber = `${number}`;
+        display.textContent = `${secondNumber}`;
     } else if (operator != undefined && secondNumber !=0){
-        return secondNumber += `${number}`;
+        secondNumber += `${number}`;
+        display.textContent = `${secondNumber}`;
     } else if (firstNumber == 0){
-        return firstNumber = `${number}`;
+        firstNumber = `${number}`;
+        display.textContent = `${firstNumber}`;
     } else {
-        return firstNumber += `${number}`;
-}
+        firstNumber += `${number}`;
+        display.textContent = `${firstNumber}`;
+    }
 }
 
 function operateFunction(operator){
@@ -79,6 +84,7 @@ let numberBtnFx = function numberBtnFx(e){
 
 let operatorBtnFx = function operatorBtnFx(operation){
     operator = (`${operation.target.textContent}`);
+    display.textContent = `${operator}`
     console.log(operator);
 }
 
@@ -95,6 +101,7 @@ operationButton[i].addEventListener("click",operatorBtnFx);
 }
 
 equalButton.addEventListener('click', function(){(operateFunction(operator))});
+equalButton.addEventListener('click', function(){display.textContent =`${firstNumber}`});
 
 // console.log(operateFunction(6,,''));
 // ^test line
