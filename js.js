@@ -1,7 +1,12 @@
 let firstNumber = 0;
 let secondNumber = 0;
 let operator;
-const display = document.getElementById("display")
+const display = document.getElementById("display");
+const numberButton = Array.from(document.getElementsByClassName("numberButton"));
+const operationButton = Array.from(document.getElementsByClassName("operationButton"));
+const equalButton = document.getElementById("equalButton");
+const clearButton = document.getElementById("clearButton");
+// const dotButton = document.getElementById("dotButton");
 
 function reset(){
     secondNumber = 0;
@@ -11,6 +16,7 @@ function reset(){
 function clear(){
     firstNumber = 0;
     reset();
+    display.textContent = `${firstNumber}`;
 }
 
 function add(){
@@ -88,10 +94,6 @@ let operatorBtnFx = function operatorBtnFx(operation){
     console.log(operator);
 }
 
-const numberButton = Array.from(document.getElementsByClassName("numberButton"));
-const operationButton = Array.from(document.getElementsByClassName("operationButton"));
-const equalButton = document.getElementById("equalButton");
-
 for (let i = 0; i <numberButton.length; i++){
 numberButton[i].addEventListener("click",numberBtnFx);
 }
@@ -103,5 +105,6 @@ operationButton[i].addEventListener("click",operatorBtnFx);
 equalButton.addEventListener('click', function(){(operateFunction(operator))});
 equalButton.addEventListener('click', function(){display.textContent =`${firstNumber}`});
 
+clearButton.addEventListener('click', clear);
 // console.log(operateFunction(6,,''));
 // ^test line
